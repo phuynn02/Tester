@@ -6,6 +6,7 @@ import DataObjects.HomePage;
 import DataObjects.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,33 +29,15 @@ public class TC08 {
         System.out.println("TC_08 - User can't login with an account hasn't been activated");
         LoginPage loginPage = homePage.gotoLoginPage();
         String username = "ngantam168@gmail.com";
-        String password= "123456789";
-        String actualWelcomeMessage = loginPage.login(username, password).getWelcomeMessage();
-        String title = driver.getTitle();
-        if (actualWelcomeMessage.contains("Login")){
-            System.out.println("User can not login");
-        }else {
-            System.out.println("user navigated to another page");
-        }
-//        driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
-//        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("12345678");
-//        driver.findElement(By.xpath("//input[@title='Login']")).click();
-//        String title = driver.getTitle();
-//        if (title.contains("Login")) {
-//            System.out.println("User can not login");
-//        } else {
-//            System.out.println("user navigated to another page");
-//        }
-//        String expected = "Invalid username or password. Please try again.";
-//        String actual = driver.findElement(By.xpath("//p[@class='message error LoginForm']")).getText();
-//        if (actual.contains(expected)) {
-//            System.out.println("Mess is displayed correctly");
-//        } else {
-//            System.out.println("mess is not displayed correctly");
-//        }
-//        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//        FileHandler.copy(scrFile, new File(PathScreenshot + "TC_08 - User can't login with an account hasn't been activated.png"));
-//        driver.close();
+        String password= "123456789aa";
+        String expectedWelcomeMessage = "Invalid username or password. Please try again.";
+
+        String actualWelcomeMessage = loginPage.login(username, password).getlblErrorLoginMsg().getText();
+
+        Assert.assertEquals(actualWelcomeMessage, expectedWelcomeMessage, "There was a problem with your " +
+                "login and/or errors exist in your form.");
+
+//
     }
 
 }

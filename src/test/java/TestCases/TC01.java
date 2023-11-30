@@ -35,7 +35,7 @@ public class TC01 {
         // Step 3: Attempt to login with a valid username and password
         String validUsername = "ngantam168@gmail.com";
         String validPassword = "123456789";
-        String expectedWelcomeMessage = "Welcome " + validUsername;
+        String expectedWelcomeMessage = "Welcome to Safe Railway" ;
         // Logging in and getting the actual welcome message
         String actualWelcomeMessage = loginPage.login(validUsername, validPassword).getWelcomeMessage();
 

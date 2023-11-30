@@ -10,6 +10,7 @@ public class LoginPage extends GeneralPage {
     private final By _txtPassword = By.xpath("//input[@id='password']");
     private final By _btnLogin = By.xpath("//input[@value = 'login']");
 
+
     //Elements
 
     public WebElement getTxtUsername(){
@@ -21,6 +22,8 @@ public class LoginPage extends GeneralPage {
     public WebElement getBtnLogin(){
         return Constant.WEBDRIVER.findElement(_btnLogin);
     }
+
+
 
     //Methods
     public HomePage login(String username, String password){

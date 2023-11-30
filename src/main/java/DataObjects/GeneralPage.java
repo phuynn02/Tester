@@ -14,6 +14,8 @@ public class GeneralPage {
     private final By tabChangePassword = By.xpath("//*[@id=\"menu\"]/ul/li[8]/a/span");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
     private final By tabTimetable = By.xpath("//*[@id=\"menu\"]/ul/li[4]/a/span");
+    private final By _lblLoginErrorMsg = By.xpath("//*[@id=\"content\"]/p");
+    private final By _lblRegisMsg = By.xpath("//*[@id=\"content\"]/p");
 
     //Elements
     protected WebElement getTabLogin(){
@@ -22,9 +24,7 @@ public class GeneralPage {
     protected WebElement getTabLogout(){
         return Constant.WEBDRIVER.findElement(tabLogout);
     }
-    protected WebElement getlblWelcomeMessage(){
-        return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
-    }
+    protected WebElement getlblWelcomeMessage(){return Constant.WEBDRIVER.findElement(lblWelcomeMessage);}
     protected WebElement tabBookTicket(){
         return Constant.WEBDRIVER.findElement(tabBookTicket);
     }
@@ -32,7 +32,14 @@ public class GeneralPage {
     protected WebElement tabChangePassword() {return Constant.WEBDRIVER.findElement(tabChangePassword);}
     protected WebElement tabRegister(){ return Constant.WEBDRIVER.findElement(tabRegister);}
     protected WebElement gettabTimetable(){return Constant.WEBDRIVER.findElement(tabTimetable);}
-    //Methods
+    public WebElement getlblRegisMsg(){return Constant.WEBDRIVER.findElement(_lblRegisMsg);}
+
+
+    public WebElement getlblErrorLoginMsg(){
+        return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
+    }
+
+
     public String getWelcomeMessage(){
         return this.getlblWelcomeMessage().getText();
     }

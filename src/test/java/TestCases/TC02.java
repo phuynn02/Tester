@@ -37,9 +37,9 @@ public class TC02 {
         LoginPage loginPage = homePage.gotoLoginPage();
         String validUsername = "";
         String validPassword = "123456789";
-        String expectedWelcomeMessage = "Welcome " + validUsername;
+        String expectedWelcomeMessage = "There was a problem with your login and/or errors exist in your form." ;
 
-        String actualWelcomeMessage = loginPage.login(validUsername, validPassword).getWelcomeMessage();
+        String actualWelcomeMessage = loginPage.login(validUsername, validPassword).getlblErrorLoginMsg().getText();
         Assert.assertEquals(actualWelcomeMessage, expectedWelcomeMessage, "There was a problem with your login and/or errors exist in your form.");
     }
 }
